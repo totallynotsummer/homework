@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+  <style>
+    div {
+      margin: 10px;
+      padding: 10px;
+      border: solid black 1px;
+      display: inline-block;
+    }
+
+    .pale {
+      background-color: palegoldenrod;
+    }
+    .microsoft {
+      color: navy;
+      font-family: 'Roboto';
+     font-style: normal;
+    }
+     .color {
+      color: darkturquoise;
+      font-family: 'Roboto';
+     font-style: normal;
+    }
+
+
+    li {
+      font-size: 24px;
+      color: gray;
+    }
+  </style>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>Display products</title>
+</head>
+<body>
+  <div id="app">
+    <ul v-bind:class="vueClass">
+      
+      <li>The best company in the world is {{ apple }}</li>
+      <li>The largest company in the world is {{ microsoft }}</li> <!--Fill the blank inside brackets-->
+
+      <li>The following are some products of them. Assign microsoft style to Microsoft's products.  Assign darkturquoise to Apple's products.</li><!--This is requirement of this exercise.-->
+
+    <ul>
+      <li v-bind:class="{ microsoft: }">Windows platform</li><style type="microsoft"></style>
+      <li v-bind:style="{ color: isImportant}" >Vision pro </li> <style type="color"></style>
+      <li v-bind:class="{ microsoft }">XBOX console</li><style type="microsoft"></style>
+      <li v-bind:class="{ color : isImportant }">Azure</li><style type="microsoft"></style>
+      <li v-bind:style="{ color : isImportant }">iPod</li><!--Fill the blank inside brackets-->
+    </ul>
+
+    </ul>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          vueClass: "pale",
+          best_company: "Apple",
+          large_company:"Microsoft",
+          isImportant: "darkturqoise"
+         
+        };
+      },
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+</html>
